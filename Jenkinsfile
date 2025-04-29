@@ -4,7 +4,7 @@ pipeline{
         stage('Hello'){
             steps{
                 echo 'Hello World'
-                sh "./mvnw clean"
+                sh "./mvnw clean install"
             }
         }
     }

@@ -78,7 +78,7 @@ public class ProductController {
     public ResponseEntity<APIResponse<ProductResponse>> findProductById(@PathVariable Long id){
         return ResponseEntity
                 .status(HttpStatus.valueOf(ProductConstant.STATUS_200))
-                .body(productService.findProductById(id));
+                .body(productService.findProductById(id))sdasd;
     }
 
     @Operation(

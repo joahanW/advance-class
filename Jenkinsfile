@@ -1,6 +1,27 @@
 pipeline{
     agent any
+
+    environment{
+        AUTHOR = 'Joahan'
+        EMAIL = 'johanwork@gmail.com'
+        WEB = 'www.johanwork.com'
+    }
+
     stages {
+        stage('Environment'){
+            environment{
+                APP = credentials('secret')
+            }
+            steps{
+                echo "AUTHOR ${AUTHOR}"
+                echo "Email ${EMAIL}"
+                echo "Start Job: ${env.JOB_NAME}"
+                echo "Start Build Number: ${env.BUILD_NUMBER}"
+                echo "APP USER: ${APP_USR}"
+                echo "APP PASSWORD: ${APP_PSW}"
+            }
+        }
+
         stage('Build'){
             steps{
                 echo "Start Build"

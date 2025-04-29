@@ -1,12 +1,30 @@
 pipeline{
     agent any
     stages {
-        stage('Hello'){
+        stage('Build'){
             steps{
-                echo 'Hello World'
-                sh "./mvnw clean install"
+                echo "Start Build"
+                sh "./mvnw clean compile"
+                echo "End Build"
             }
         }
+
+        stage('Test'){
+            steps{
+                echo "Start Testing"
+                sh "./mvnw test"
+                echo "End Testing"
+            }
+        }
+
+        stage('Deploy'){
+            steps{
+                echo "Start Deploy"
+                sleep(5)
+                echo "End Deploy"
+            }
+        }
+
     }
 
     post{

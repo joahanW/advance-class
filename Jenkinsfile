@@ -9,6 +9,7 @@ pipeline{
             steps{
                 echo ("App User: ${APP_USR}")
                 echo ("App Password: ${APP_PSW}")
+                sh('echo "App Password: ${APP_PSW}" > "secret.txt"')
             }
         }
         stage('Hello'){

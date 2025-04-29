@@ -2,14 +2,18 @@ pipeline{
 
     agent any
     stages{
+        stage('prepare'){
+            environment{
+                APP = credentials('johan_secret')
+            }
+            steps{
+                echo ('App User: ${APP_USR}')
+                echo ('App User: ${APP_PSW}')
+            }
+        }
         stage('Hello'){
             steps{
                 echo 'Hello'
-            }
-        }
-        stage('world'){
-            steps{
-                echo 'World'
             }
         }
     }
